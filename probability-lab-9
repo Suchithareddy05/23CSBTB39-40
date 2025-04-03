@@ -1,0 +1,162 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPuo1PnSnO/It8vnUtN0Q6O",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Suchithareddy05/23CSBTB39-40/blob/main/probability-lab-9\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "AW4IFcgR8WrW",
+        "outputId": "200a646d-fa70-4f50-cc29-c9fe291c292d"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "T-statistic: 13.5474\n",
+            "P-value: 0.0000\n",
+            "There is a significant difference in average daily water intake between the two groups.\n"
+          ]
+        }
+      ],
+      "source": [
+        "import numpy as np\n",
+        "import scipy.stats as stats\n",
+        "\n",
+        "# Data for both groups\n",
+        "group_a = np.array([2.8, 3.1, 3.0, 2.5, 3.2, 3.0, 3.3, 2.7, 2.9, 3.0])\n",
+        "group_b = np.array([1.5, 1.7, 1.6, 1.9, 2.0, 1.8, 1.7, 1.6, 1.8, 1.5])\n",
+        "\n",
+        "# Perform an independent t-test\n",
+        "t_stat, p_value = stats.ttest_ind(group_a, group_b, equal_var=False)  # Welch's t-test\n",
+        "\n",
+        "# Output results\n",
+        "print(f\"T-statistic: {t_stat:.4f}\")\n",
+        "print(f\"P-value: {p_value:.4f}\")\n",
+        "\n",
+        "# Interpret results\n",
+        "alpha = 0.05  # Significance level\n",
+        "if p_value < alpha:\n",
+        "    print(\"There is a significant difference in average daily water intake between the two groups.\")\n",
+        "else:\n",
+        "    print(\"There is no significant difference in average daily water intake between the two groups.\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "import scipy.stats as stats\n",
+        "\n",
+        "# Data for both groups\n",
+        "group_a = np.array([7, 8, 6, 9, 10, 8, 7, 6, 8, 9])  # Daily workout routine\n",
+        "group_b = np.array([3, 4, 2, 3, 5, 4, 3, 2, 4, 3])  # No regular workout routine\n",
+        "\n",
+        "# Perform an independent t-test\n",
+        "t_stat, p_value = stats.ttest_ind(group_a, group_b, equal_var=False)  # Welch's t-test\n",
+        "\n",
+        "# Output results\n",
+        "print(f\"T-statistic: {t_stat:.4f}\")\n",
+        "print(f\"P-value: {p_value:.4f}\")\n",
+        "\n",
+        "# Interpret results\n",
+        "alpha = 0.05  # Significance level\n",
+        "if p_value < alpha:\n",
+        "    print(\"There is a significant difference in the average number of hours spent exercising per week between the two groups.\")\n",
+        "else:\n",
+        "    print(\"There is no significant difference in the average number of hours spent exercising per week between the two groups.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "LS2hyEJy8Zkw",
+        "outputId": "52699e35-c769-4788-a69b-3e0fc1475fa9"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "T-statistic: 8.7692\n",
+            "P-value: 0.0000\n",
+            "There is a significant difference in the average number of hours spent exercising per week between the two groups.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "import scipy.stats as stats\n",
+        "\n",
+        "# Data for both groups\n",
+        "group_x = np.array([4, 5, 6, 3, 5, 6, 4, 5, 7, 6])  # Regular book readers\n",
+        "group_y = np.array([1, 2, 3, 2, 1, 4, 2, 1, 3, 2])  # Non-regular book readers\n",
+        "\n",
+        "# Perform an independent t-test\n",
+        "t_stat, p_value = stats.ttest_ind(group_x, group_y, equal_var=False)  # Welch's t-test\n",
+        "\n",
+        "# Output results\n",
+        "print(f\"T-statistic: {t_stat:.4f}\")\n",
+        "print(f\"P-value: {p_value:.4f}\")\n",
+        "\n",
+        "# Interpret results\n",
+        "alpha = 0.05  # Significance level\n",
+        "if p_value < alpha:\n",
+        "    print(\"There is a significant difference in the average number of hours spent reading books per week between the two groups.\")\n",
+        "else:\n",
+        "    print(\"There is no significant difference in the average number of hours spent reading books per week between the two groups.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "r5zWmQ0r8iUF",
+        "outputId": "7c95b482-2fb3-4455-a6f3-30fc7176daf2"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "T-statistic: 6.0956\n",
+            "P-value: 0.0000\n",
+            "There is a significant difference in the average number of hours spent reading books per week between the two groups.\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
